@@ -42,16 +42,16 @@ public class MainActivity extends AppCompatActivity {
         Menu menu = navigationView.getMenu();
         MenuItem menuItem = menu.findItem(R.id.nav_switch);
         View actionView = MenuItemCompat.getActionView(menuItem);
-
+        SettingsContainer sc = SettingsContainer.getInstance();
         switcher = (SwitchCompat) actionView.findViewById(R.id.switcher);
         switcher.setChecked(true);
         switcher.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (switcher.isChecked()) {
-                    HomeFragment.setTextEditable(true);
+                    sc.setEditAllowed(true);
                 } else {
-                    HomeFragment.setTextEditable(false);
+                    sc.setEditAllowed(false);
 
                 }
             }

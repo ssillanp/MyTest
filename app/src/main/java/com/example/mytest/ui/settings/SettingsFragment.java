@@ -9,10 +9,12 @@ import android.widget.EditText;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import com.example.mytest.R;
+import com.example.mytest.SettingsContainer;
 import com.example.mytest.ui.home.HomeFragment;
 
 public class SettingsFragment extends Fragment {
 
+    SettingsContainer sc = SettingsContainer.getInstance();
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -21,7 +23,10 @@ public class SettingsFragment extends Fragment {
         EditText width = root.findViewById(R.id.editTextWidth);
         EditText height = root.findViewById(R.id.editTextHeight);
         EditText rows = root.findViewById(R.id.editTextRows);
-
+        sc.setFontSize(fontSize.getText().toString());
+        sc.setWidth(width.getText().toString());
+        sc.setHeight(height.getText().toString());
+        sc.setFontSize(rows.getText().toString());
         return root;
     }
 }

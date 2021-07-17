@@ -14,25 +14,22 @@ import android.support.v4.app.Fragment;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProvider;
 import com.example.mytest.R;
+import com.example.mytest.SettingsContainer;
 
 public class HomeFragment extends Fragment {
 
 
-    private static EditText editText;
-    private static TextView textView;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+        SettingsContainer sc = SettingsContainer.getInstance();
         View root = inflater.inflate(R.layout.fragment_home, container, false);
-        textView = root.findViewById(R.id.text_home);
-        editText = root.findViewById(R.id.editTextT);
+        TextView textView = root.findViewById(R.id.text_home);
+        EditText editText = root.findViewById(R.id.editTextT);
+        editText.setEnabled(sc.getEditAllowed());
         return root;
     }
 
-    public static void setTextEditable(boolean setting) {
-        editText.setEnabled(setting);
-        if (!setting) {
-            textView.setText(editText.getText().toString());
-        }
-    }
+
 }
