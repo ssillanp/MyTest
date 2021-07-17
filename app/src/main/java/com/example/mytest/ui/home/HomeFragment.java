@@ -1,9 +1,11 @@
 package com.example.mytest.ui.home;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.widget.SwitchCompat;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
@@ -27,9 +29,19 @@ public class HomeFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
         TextView textView = root.findViewById(R.id.text_home);
         EditText editText = root.findViewById(R.id.editTextT);
-        editText.setEnabled(sc.getEditAllowed());
+        root.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editText.setEnabled(sc.getEditAllowed());
+            }
+        });
+        editText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editText.setEnabled(sc.getEditAllowed());
+            }
+        });
         return root;
     }
-
 
 }
