@@ -10,6 +10,7 @@ public class SettingsContainer {
     private boolean allowEdit;
     private String viewText;
     private String editText;
+    private String settingsTextToDisplay;
 
     private SettingsContainer() {
         fontSize = 18f;
@@ -79,5 +80,13 @@ public class SettingsContainer {
 
     public void setEditText(String editText) {
         this.editText = editText;
+    }
+
+    public String getSettingsText() {
+        return settingsTextToDisplay;
+    }
+
+    public void setSettingsTextToDisplay(String settingsTextToDisplay) {
+        this.settingsTextToDisplay = settingsTextToDisplay;
     }
 }

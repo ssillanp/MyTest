@@ -1,16 +1,18 @@
 package com.example.mytest.ui.settings;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.widget.SeekBar;
-import android.widget.TextView;
+import android.widget.*;
 import com.example.mytest.R;
 import com.example.mytest.SettingsContainer;
+import android.widget.ArrayAdapter;
+
+import java.util.ArrayList;
 
 public class SettingsFragment extends Fragment {
 
@@ -24,10 +26,33 @@ public class SettingsFragment extends Fragment {
         SeekBar width = root.findViewById(R.id.seekBarWidth);
         SeekBar height = root.findViewById(R.id.seekBarHeight);
         SeekBar rows = root.findViewById(R.id.seekBarRows);
+        Spinner Language = root.findViewById(R.id.spinnerLanguage);
+        ArrayList<String> languages = new ArrayList<String>();
+        languages.add("English");
+        languages.add("Suomi");
+        languages.add("Svenska");
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_dropdown_item, languages);
+        Language.setAdapter(adapter);
+        EditText textToDisplay = root.findViewById(R.id.editTextToDisplay);
         fontSize.setProgress((int) sc.getFontSize());
         width.setProgress(sc.getWidth());
         height.setProgress(sc.getHeight());
         rows.setProgress(sc.getRows());
+        TextView fontSizeMonitor = root.findViewById(R.id.textViewFonSizeMon);
+        TextView widthMonitor = root.findViewById(R.id.textViewWidthMon);
+        TextView heightMonitor = root.findViewById(R.id.textViewHeightMon);
+        TextView rowsMonitor = root.findViewById(R.id.textViewRowsMon);
+        fontSizeMonitor.setText(String.valueOf((int) sc.getFontSize()));
+        widthMonitor.setText(String.valueOf(sc.getWidth()));
+        heightMonitor.setText(String.valueOf(sc.getHeight()));
+        rowsMonitor.setText(String.valueOf(sc.getRows()));
+        textToDisplay.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                sc.setSettingsTextToDisplay(textToDisplay.getText().toString());
+                return false;
+            }
+        });
 
 
         SeekBar.OnSeekBarChangeListener listener = new SeekBar.OnSeekBarChangeListener() {
@@ -37,10 +62,10 @@ public class SettingsFragment extends Fragment {
                 sc.setWidth(width.getProgress());
                 sc.setHeight(height.getProgress());
                 sc.setRows(rows.getProgress());
-//                fontSizeMonitor.setText((int) sc.getFontSize());
-//                widthMonitor.setText((int) sc.getWidth());
-//                heightMonitor.setText((int) sc.getHeight());
-//                rowsMonitor.setText((int) sc.getRows());
+                fontSizeMonitor.setText(String.valueOf((int) sc.getFontSize()));
+                widthMonitor.setText(String.valueOf(sc.getWidth()));
+                heightMonitor.setText(String.valueOf(sc.getHeight()));
+                rowsMonitor.setText(String.valueOf(sc.getRows()));
             }
 
             @Override
@@ -53,6 +78,9 @@ public class SettingsFragment extends Fragment {
 
             }
         };
+
+
+
         fontSize.setOnSeekBarChangeListener(listener);
         width.setOnSeekBarChangeListener(listener);
         height.setOnSeekBarChangeListener(listener);

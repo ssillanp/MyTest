@@ -33,8 +33,12 @@ public class HomeFragment extends Fragment {
         textView.setText(sc.getViewText());
         editText.setText(sc.getEditText());
         textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, sc.getFontSize());
-        textView.setMaxWidth(sc.getWidth());
-        textView.setHeight(sc.getHeight());
+        textView.setMaxWidth(sc.getWidth()); //TODO Ei toimi oikein
+        textView.setMaxHeight(sc.getHeight()); //TODO Ei toimi oikein
+        textView.setLines(sc.getRows());
+        TextView fromSettings = root.findViewById(R.id.textViewFromSettings);
+        fromSettings.setText(sc.getSettingsText());
+        fromSettings.setText(sc.getSettingsText());
         editText.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View root, int keyCode, KeyEvent event) {
@@ -57,6 +61,7 @@ public class HomeFragment extends Fragment {
         editText.setEnabled(sc.getEditAllowed());
         if (!sc.getEditAllowed()){
             textView.setText(editText.getText().toString());
+            sc.setViewText(editText.getText().toString());
         }
     }
 

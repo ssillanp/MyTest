@@ -15,4 +15,6 @@
     <string name="layout_width">Width</string>
     <string name="layout_height">Height</string>
     <string name="number_of_rows">Rows</string>
+    <string name="display_text">Display text</string>
+    <string name="language">Language</string>
 </resources>

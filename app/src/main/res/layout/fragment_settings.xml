@@ -10,7 +10,7 @@
         android:id="@+id/seekBarFontSize"
         android:layout_width="170dp"
         android:layout_height="20dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="48dp"
         android:layout_marginEnd="120dp"
         android:max="40"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,32 +20,31 @@
         android:id="@+id/seekBarWidth"
         android:layout_width="170dp"
         android:layout_height="20dp"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="76dp"
-        android:max="400"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.385"
-        app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/seekBarRows" />
-
-    <SeekBar
-        android:id="@+id/seekBarHeight"
-        android:layout_width="170dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="48dp"
         android:layout_marginEnd="120dp"
         android:max="400"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/seekBarFontSize" />
 
     <SeekBar
+        android:id="@+id/seekBarHeight"
+        android:layout_width="170dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="120dp"
+        android:max="400"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seekBarWidth" />
+
+    <SeekBar
         android:id="@+id/seekBarRows"
         android:layout_width="170dp"
         android:layout_height="20dp"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="120dp"
+        android:layout_marginTop="48dp"
         android:max="8"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/seekBarHeight" />
 
     <TextView
@@ -62,29 +61,116 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="28dp"
         android:text="@string/layout_width"
-        app:layout_constraintEnd_toStartOf="@+id/seekBarHeight"
-        app:layout_constraintHorizontal_bias="0.72"
+        app:layout_constraintEnd_toStartOf="@+id/seekBarWidth"
+        app:layout_constraintHorizontal_bias="0.918"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/seekBarHeight" />
+        app:layout_constraintTop_toTopOf="@+id/seekBarWidth" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/layout_height"
-        app:layout_constraintEnd_toStartOf="@+id/seekBarRows"
-        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintEnd_toStartOf="@+id/seekBarHeight"
+        app:layout_constraintHorizontal_bias="0.691"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/seekBarRows" />
+        app:layout_constraintTop_toTopOf="@+id/seekBarHeight" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
+        android:layout_marginStart="56dp"
         android:text="@string/number_of_rows"
+        app:layout_constraintEnd_toStartOf="@+id/seekBarRows"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/seekBarRows" />
+
+    <TextView
+        android:id="@+id/textViewFonSizeMon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.114"
+        app:layout_constraintStart_toEndOf="@+id/seekBarFontSize"
+        app:layout_constraintTop_toTopOf="@+id/seekBarFontSize" />
+
+    <TextView
+        android:id="@+id/textViewWidthMon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.108"
+        app:layout_constraintStart_toEndOf="@+id/seekBarWidth"
         app:layout_constraintTop_toTopOf="@+id/seekBarWidth" />
+
+    <TextView
+        android:id="@+id/textViewHeightMon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.126"
+        app:layout_constraintStart_toEndOf="@+id/seekBarHeight"
+        app:layout_constraintTop_toTopOf="@+id/seekBarHeight" />
+
+    <TextView
+        android:id="@+id/textViewRowsMon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.111"
+        app:layout_constraintStart_toEndOf="@+id/seekBarRows"
+        app:layout_constraintTop_toTopOf="@+id/seekBarRows" />
+
+    <EditText
+        android:id="@+id/editTextToDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="76dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seekBarRows"
+        app:layout_constraintVertical_bias="0.191" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/display_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/editTextToDisplay"
+        app:layout_constraintHorizontal_bias="0.875"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinnerLanguage"
+        android:layout_width="212dp"
+        android:layout_height="39dp"
+        android:layout_marginEnd="76dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextToDisplay"
+        app:layout_constraintVertical_bias="0.183" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/language"
+        app:layout_constraintEnd_toStartOf="@+id/spinnerLanguage"
+        app:layout_constraintHorizontal_bias="0.661"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/spinnerLanguage" />
 
 </android.support.constraint.ConstraintLayout>
