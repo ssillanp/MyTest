@@ -1,32 +1,68 @@
 package com.example.mytest.ui.settings;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.widget.SeekBar;
+import android.widget.TextView;
 import com.example.mytest.R;
 import com.example.mytest.SettingsContainer;
-import com.example.mytest.ui.home.HomeFragment;
 
 public class SettingsFragment extends Fragment {
 
-    SettingsContainer sc = SettingsContainer.getInstance();
+    private SettingsContainer sc = SettingsContainer.getInstance();
+    private View root;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_settings, container, false);
-        EditText fontSize = root.findViewById(R.id.editTextFontSize);
-        EditText width = root.findViewById(R.id.editTextWidth);
-        EditText height = root.findViewById(R.id.editTextHeight);
-        EditText rows = root.findViewById(R.id.editTextRows);
-        sc.setFontSize(fontSize.getText().toString());
-        sc.setWidth(width.getText().toString());
-        sc.setHeight(height.getText().toString());
-        sc.setFontSize(rows.getText().toString());
+        root = inflater.inflate(R.layout.fragment_settings, container, false);
+        SeekBar fontSize = root.findViewById(R.id.seekBarFontSize);
+        SeekBar width = root.findViewById(R.id.seekBarWidth);
+        SeekBar height = root.findViewById(R.id.seekBarHeight);
+        SeekBar rows = root.findViewById(R.id.seekBarRows);
+        fontSize.setProgress((int) sc.getFontSize());
+        width.setProgress(sc.getWidth());
+        height.setProgress(sc.getHeight());
+        rows.setProgress(sc.getRows());
+
+
+        SeekBar.OnSeekBarChangeListener listener = new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                sc.setFontSize(fontSize.getProgress());
+                sc.setWidth(width.getProgress());
+                sc.setHeight(height.getProgress());
+                sc.setRows(rows.getProgress());
+//                fontSizeMonitor.setText((int) sc.getFontSize());
+//                widthMonitor.setText((int) sc.getWidth());
+//                heightMonitor.setText((int) sc.getHeight());
+//                rowsMonitor.setText((int) sc.getRows());
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        };
+        fontSize.setOnSeekBarChangeListener(listener);
+        width.setOnSeekBarChangeListener(listener);
+        height.setOnSeekBarChangeListener(listener);
+        rows.setOnSeekBarChangeListener(listener);
+
         return root;
     }
+
+
+
+
+
 }

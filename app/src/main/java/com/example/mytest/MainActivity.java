@@ -50,8 +50,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (switcher.isChecked()) {
                     sc.setEditAllowed(true);
+                    HomeFragment.setEdit();
                 } else {
                     sc.setEditAllowed(false);
+                    HomeFragment.setEdit();
 
                 }
             }

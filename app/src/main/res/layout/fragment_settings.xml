@@ -1,94 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent" android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     tools:context=".ui.settings.SettingsFragment">
 
-    <EditText
-        android:id="@+id/editTextFontSize"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
-        android:ems="10"
-        android:inputType="number|text"
+    <SeekBar
+        android:id="@+id/seekBarFontSize"
+        android:layout_width="170dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="120dp"
+        android:max="40"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.545"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/editTextWidth"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <SeekBar
+        android:id="@+id/seekBarWidth"
+        android:layout_width="170dp"
+        android:layout_height="20dp"
         android:layout_marginTop="52dp"
-        android:ems="10"
-        android:inputType="number|text"
+        android:layout_marginEnd="76dp"
+        android:max="400"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.545"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextFontSize" />
+        app:layout_constraintHorizontal_bias="0.385"
+        app:layout_constraintStart_toEndOf="@+id/textView5"
+        app:layout_constraintTop_toBottomOf="@+id/seekBarRows" />
 
-    <EditText
-        android:id="@+id/editTextHeight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:ems="10"
-        android:inputType="text"
+    <SeekBar
+        android:id="@+id/seekBarHeight"
+        android:layout_width="170dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="120dp"
+        android:max="400"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.545"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextWidth" />
+        app:layout_constraintTop_toBottomOf="@+id/seekBarFontSize" />
 
-    <EditText
-        android:id="@+id/editTextRows"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:ems="10"
-        android:inputType="number"
+    <SeekBar
+        android:id="@+id/seekBarRows"
+        android:layout_width="170dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="120dp"
+        android:max="8"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.545"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextHeight" />
+        app:layout_constraintTop_toBottomOf="@+id/seekBarHeight" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="FontSize"
-        app:layout_constraintEnd_toStartOf="@+id/editTextFontSize"
-        app:layout_constraintHorizontal_bias="1.0"
+        android:text="@string/settings_font_size"
+        app:layout_constraintEnd_toStartOf="@+id/seekBarFontSize"
+        app:layout_constraintHorizontal_bias="0.853"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/editTextFontSize" />
+        app:layout_constraintTop_toTopOf="@+id/seekBarFontSize" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Width"
-        app:layout_constraintEnd_toStartOf="@+id/editTextWidth"
-        app:layout_constraintHorizontal_bias="1.0"
+        android:text="@string/layout_width"
+        app:layout_constraintEnd_toStartOf="@+id/seekBarHeight"
+        app:layout_constraintHorizontal_bias="0.72"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/editTextWidth" />
+        app:layout_constraintTop_toTopOf="@+id/seekBarHeight" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Height"
-        app:layout_constraintEnd_toStartOf="@+id/editTextHeight"
-        app:layout_constraintHorizontal_bias="1.0"
+        android:text="@string/layout_height"
+        app:layout_constraintEnd_toStartOf="@+id/seekBarRows"
+        app:layout_constraintHorizontal_bias="0.75"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/editTextHeight" />
+        app:layout_constraintTop_toTopOf="@+id/seekBarRows" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Rows"
-        app:layout_constraintEnd_toStartOf="@+id/editTextRows"
-        app:layout_constraintHorizontal_bias="1.0"
+        android:layout_marginStart="60dp"
+        android:text="@string/number_of_rows"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/editTextRows" />
+        app:layout_constraintTop_toTopOf="@+id/seekBarWidth" />
+
 </android.support.constraint.ConstraintLayout>

@@ -3,58 +3,81 @@ package com.example.mytest;
 public class SettingsContainer {
 
     private static SettingsContainer sCont = new SettingsContainer();
-    private String fontSize;
-    private String width;
-    private String height;
+    private float fontSize;
+    private int width;
+    private int height;
     private int rows;
     private boolean allowEdit;
+    private String viewText;
+    private String editText;
 
-    private SettingsContainer () {
-        fontSize = "18sp";
-        width = "390dp";
-        height = "50dp";
+    private SettingsContainer() {
+        fontSize = 18f;
+        width = 390;
+        height = 50;
         rows = 1;
         allowEdit = true;
+        viewText = "Hello World!";
+        editText = "Your text here";
     }
 
     public static SettingsContainer getInstance() {
         return sCont;
     }
 
-    public void setFontSize(String val){
-         fontSize = val;
+    public void setFontSize(int val) {
+        this.fontSize = (float) val;
     }
 
-    public String getFontSize() {
+    public float getFontSize() {
         return fontSize;
     }
-    public void setWidth(String val){
-        width = val;
+
+    public void setWidth(int val) {
+        this.width =  val;
     }
 
-    public String getWidth(){
+    public int getWidth() {
         return width;
     }
-    public void setHeight(String val){
-        height = val;
+
+    public void setHeight(int val) {
+        this.height = val;
     }
 
-    public String getHeight(){
+    public int getHeight() {
         return height;
     }
-    public void setRows(int val){
-        rows = val;
+
+    public void setRows(int val) {
+        this.rows = val;
     }
 
-    public int getRows(){
+    public int getRows() {
         return rows;
     }
 
-    public void setEditAllowed(boolean val){
-        allowEdit = val;
+    public void setEditAllowed(boolean val) {
+        this.allowEdit = val;
     }
 
-    public boolean getEditAllowed(){
+    public boolean getEditAllowed() {
         return allowEdit;
+    }
+
+    public String getViewText() {
+        return viewText;
+    }
+
+    public void setViewText(String viewText) {
+        this.viewText = viewText;
+    }
+
+    public String getEditText() {
+        return editText;
+    }
+
+    public void setEditText(String editText) {
+        this.editText = editText;
     }
 }
