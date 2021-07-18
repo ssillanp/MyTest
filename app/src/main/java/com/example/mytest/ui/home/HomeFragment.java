@@ -1,6 +1,7 @@
 package com.example.mytest.ui.home;
 
 import android.annotation.SuppressLint;
+import android.app.ActionBar;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
@@ -36,9 +37,11 @@ public class HomeFragment extends Fragment {
         textView.setText(sc.getViewText());
         editText.setText(sc.getEditText());
         textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, sc.getFontSize());
-        textView.setMaxWidth(sc.getWidth()); //TODO Ei toimi oikein
-        textView.setMaxHeight(sc.getHeight()); //TODO Ei toimi oikein
+        textView.setMaxWidth(sc.getWidth());
+        textView.setMaxHeight(sc.getHeight());
         textView.setLines(sc.getRows());
+        ConstraintLayout.LayoutParams params = new ConstraintLayout.LayoutParams(sc.getWidth(), sc.getHeight());
+        textView.setLayoutParams(params);
         TextView fromSettings = root.findViewById(R.id.textViewFromSettings);
         fromSettings.setText(sc.getSettingsText());
         fromSettings.setText(sc.getSettingsText());

@@ -14,9 +14,9 @@ public class SettingsContainer {
 
     private SettingsContainer() {
         fontSize = 18f;
-        width = 500;
-        height = 1000;
-        rows = 1;
+        width = 1440;
+        height = 1440;
+        rows = 10;
         allowEdit = true;
         viewText = "Hello World!";
         editText = "Your text here";
