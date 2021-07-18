@@ -33,9 +33,13 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="383dp"
-        android:layout_height="295dp"
+        android:layout_width="413dp"
+        android:layout_height="307dp"
+        android:background="#3F51B5"
+        android:paddingStart="10px"
+        android:paddingLeft="10px"
         android:text="TextView"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
